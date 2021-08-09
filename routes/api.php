@@ -30,4 +30,11 @@ Route::group(['middleware' => ['auth:api', 'bindings']], function() {
     Route::post('pinnacle/payment-record-delete-massive/{caseId}', 'Api\PinnaclePaymentRecordController@deleteMassive');
     Route::get('pinnacle/payment-record-by-student/{studentNo}', 'Api\PinnaclePaymentRecordController@getPaymentRecordByStudentNo');
     Route::get('pinnacle/student-slip-detail/{id}/{caseid}', 'Api\PinnaclePaymentRecordController@getStudentSlipDetail');
+
+    // Broadcast
+    Route::get('pinnacle/broadcast-by-status', 'Api\PinnacleBroadcastController@getBroadcastByStatus');
+    Route::get('pinnacle/broadcast/files/{broadcastId}', 'Api\PinnacleBroadcastController@getBroadcastFiles');
+    Route::put('pinnacle/broadcast/{broadcastId}', 'Api\PinnacleBroadcastController@updateBroadcast');
+    Route::post('pinnacle/update-broadcast', 'Api\PinnacleBroadcastController@updateBroadcast');
+    Route::post('pinnacle/broadcast', 'Api\PinnacleBroadcastController@storeBroadcast');
 });
